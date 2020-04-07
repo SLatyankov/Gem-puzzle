@@ -1,0 +1,85 @@
+* {
+    box-sizing: border-box;
+}
+html {
+    font-size: 10px;
+}
+
+body {
+    max-width: 1020px;
+    background: rgb(233, 233, 220);
+    margin: auto;
+    text-align: center;
+}
+
+.header {
+    height: 100px;
+}
+.batton {
+    background-color: #0D9095;
+    color: white;
+    font-size: 3rem;
+    padding: 10px 15px;
+    margin: 10px;
+    border: 3px solid rgb(83, 68, 68);
+    border-radius: 8px;
+    vertical-align: bottom;
+}
+
+.stop {
+    background-color: #666666;
+}
+
+.battons {
+    text-align: center;
+    height: 70px;
+}
+
+.panel {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.text {
+    margin: 10px;
+}
+
+.score {
+    margin: 10px;
+}
+
+.field {
+    display: grid;
+    grid-template-areas: 
+    "a a a a"
+    "a a a a"
+    "a a a a"
+    "a a a a";
+    max-width: 900px;
+    width: 100%;
+    max-height: 900px;
+    height: 100%;
+    border: 3px solid rgb(83, 68, 68);
+    margin: 0 auto;
+}
+
+.description {
+    font-size: 2rem;
+}
+
+.footer {
+    
+}
+
+.size {
+    font-size: 2rem;
+    padding: 5px;
+    margin: 0 5px;
+    background: white;
+    border-radius: 9px;
+}
+
+.choice {
+    font-size: 2.4rem;
+    margin: 0 15px;
+}
