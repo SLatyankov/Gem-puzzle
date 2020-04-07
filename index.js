@@ -9,7 +9,7 @@ FIELD.className = 'field';
 FIELD.id = 'field';
 const DESCRIPTION = document.createElement('p');
 DESCRIPTION.className = 'description';
-DESCRIPTION.textContent = 'Размер поля 4х4';
+DESCRIPTION.textContent = 'Размер поля 3х3';
 const FOOTER = document.createElement('div');
 FOOTER.className = 'footer';
 FOOTER.id = 'footer';
@@ -24,15 +24,19 @@ document.body.append(FOOTER);
 const MIXENDSTART = document.createElement('batton');
 MIXENDSTART.textContent = 'Размешать и начать';
 MIXENDSTART.className = 'batton';
+MIXENDSTART.id = 'mixEndStart';
 const STOP = document.createElement('batton');
 STOP.textContent = 'Стоп';
 STOP.className = 'batton stop';
+STOP.id = 'stop';
 const SAVE = document.createElement('batton');
 SAVE.textContent = 'Сохранить';
 SAVE.className = 'batton';
+SAVE.id = 'save';
 const RESULT = document.createElement('batton');
 RESULT.textContent = 'Результат';
 RESULT.className = 'batton';
+RESULT.id = 'result';
 
 BATTONS.append(MIXENDSTART);
 BATTONS.append(STOP);
@@ -232,3 +236,31 @@ FOOTER.addEventListener('mousedown', function (event) {
             break;
     }
 })
+
+BATTONS.addEventListener('mousedown', function (event) {
+    if(event.target.id == 'mixEndStart') {
+            array = mixed(length);
+            newField(array);
+            hiddenStand();
+    }
+    if (event.target.id == 'stop') {
+
+    }
+    if (event.target.id == 'save') {
+
+    }
+    if (event.target.id == 'result') {
+
+    }
+})
+
+
+
+
+
+
+
+
+
+
+
