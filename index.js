@@ -188,6 +188,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 8х8';
             break;
         case 'seven':
             length = 49;
@@ -195,6 +196,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 7х7';
             break;
         case 'six':
             length = 36;
@@ -202,6 +204,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 6х6';
             break;
         case 'five':
             length = 25;
@@ -209,6 +212,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 5х5';
             break;
         case 'four':
             length = 16;
@@ -216,6 +220,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 4х4';
             break;
         case 'tree':
             length = 9;
@@ -223,6 +228,7 @@ FOOTER.addEventListener('mousedown', function (event) {
             fieldStand(length);
             newField(array);
             hiddenStand();
+            DESCRIPTION.textContent = 'Размер поля 3х3';
             break;
     }
 })
