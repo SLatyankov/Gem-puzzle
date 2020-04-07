@@ -21,8 +21,6 @@ document.body.append(FIELD);
 document.body.append(DESCRIPTION);
 document.body.append(FOOTER);
 
-
-
 const MIXENDSTART = document.createElement('batton');
 MIXENDSTART.textContent = 'Размешать и начать';
 MIXENDSTART.className = 'batton';
@@ -65,21 +63,27 @@ CHOICE.textContent = 'Другие размеры';
 const THREE = document.createElement('batton');
 THREE.textContent = '3x3';
 THREE.className = 'size';
+THREE.id = 'tree';
 const FOUR = document.createElement('batton');
 FOUR.textContent = '4x4';
 FOUR.className = 'size';
+FOUR.id = 'four';
 const FIVE = document.createElement('batton');
 FIVE.textContent = '5x5';
 FIVE.className = 'size';
+FIVE.id = 'five';
 const SIX = document.createElement('batton');
 SIX.textContent = '6x6';
 SIX.className = 'size';
+SIX.id = 'six';
 const SEVEN = document.createElement('batton');
 SEVEN.textContent = '7x7';
 SEVEN.className = 'size';
+SEVEN.id = 'seven';
 const EIGHT = document.createElement('batton');
 EIGHT.textContent = '8x8';
 EIGHT.className = 'size';
+EIGHT.id = 'eight';
 
 FOOTER.append(CHOICE);
 FOOTER.append(THREE);
@@ -92,26 +96,32 @@ FOOTER.append(EIGHT);
 let length = 9;
 let array = mixed(length);
 
-switch (length) {
-    case 9:
-        FIELD.className = 'field field3';
-        break;
-    case 16:
-        FIELD.className = 'field field4';
-        break;
-    case 25:
-        FIELD.className = 'field field5';
-        break;
-    case 36:
-        FIELD.className = 'field field6';
-        break;
-    case 49:
-        FIELD.className = 'field field7';
-        break;
-    case 64:
-        FIELD.className = 'field field8';
-        break;
+fieldStand(length);
+
+function fieldStand(length) {
+    switch (length) {
+        case 9:
+            FIELD.className = 'field field3';
+            break;
+        case 16:
+            FIELD.className = 'field field4';
+            break;
+        case 25:
+            FIELD.className = 'field field5';
+            break;
+        case 36:
+            FIELD.className = 'field field6';
+            break;
+        case 49:
+            FIELD.className = 'field field7';
+            break;
+        case 64:
+            FIELD.className = 'field field8';
+            break;
+    }
 }
+
+//создание массива
 
 function mixed(length) {
     let array = [];
@@ -139,9 +149,80 @@ function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
 
-array.forEach(el => {
-    let cell = document.createElement('div');
-    cell.className = 'cell';
-    cell.textContent = el;
-    FIELD.append(cell);
+newField(array);
+
+// заполнение поля
+
+function newField(array) {
+    let cells = document.querySelectorAll('.cell');
+    cells.forEach(el => el.remove());
+    array.forEach(el => {
+        let cell = document.createElement('div');
+        cell.className = 'cell';
+        cell.textContent = el;
+        FIELD.append(cell);
+    })
+}
+
+//инвиз
+
+hiddenStand();
+
+function hiddenStand() {
+    let cells = document.querySelectorAll(".cell");
+    cells.forEach(el => {
+        if (el.textContent == 0) {
+            el.classList.add('hidden');
+        }
+    })
+}
+
+
+const SIZE = document.querySelectorAll(".size");
+
+FOOTER.addEventListener('mousedown', function (event) {
+    switch (event.target.id) {
+        case 'eight':
+            length = 64;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+        case 'seven':
+            length = 49;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+        case 'six':
+            length = 36;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+        case 'five':
+            length = 25;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+        case 'four':
+            length = 16;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+        case 'tree':
+            length = 9;
+            array = mixed(length);
+            fieldStand(length);
+            newField(array);
+            hiddenStand();
+            break;
+    }
 })
