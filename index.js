@@ -21,6 +21,8 @@ document.body.append(FIELD);
 document.body.append(DESCRIPTION);
 document.body.append(FOOTER);
 
+
+
 const MIXENDSTART = document.createElement('batton');
 MIXENDSTART.textContent = 'Размешать и начать';
 MIXENDSTART.className = 'batton';
@@ -87,33 +89,59 @@ FOOTER.append(SIX);
 FOOTER.append(SEVEN);
 FOOTER.append(EIGHT);
 
-let length = 16;
+let length = 9;
+let array = mixed(length);
 
-function mixed (length) {
-let array = [];
-let x = 0;
-let y = false;
-
-while (array.length < length) {
-    x = getRandomIntInclusive(0, length - 1);
-    y = true;
-    array.forEach(el => {
-        if (el == x) {
-            y = false;
-        }
-    })
-    if (y == true) {
-        array.push(x);
-    }
-}    
-return array;
+switch (length) {
+    case 9:
+        FIELD.className = 'field field3';
+        break;
+    case 16:
+        FIELD.className = 'field field4';
+        break;
+    case 25:
+        FIELD.className = 'field field5';
+        break;
+    case 36:
+        FIELD.className = 'field field6';
+        break;
+    case 49:
+        FIELD.className = 'field field7';
+        break;
+    case 64:
+        FIELD.className = 'field field8';
+        break;
 }
 
+function mixed(length) {
+    let array = [];
+    let x = 0;
+    let y = false;
 
-console.log(array);
+    while (array.length < length) {
+        x = getRandomIntInclusive(0, length - 1);
+        y = true;
+        array.forEach(el => {
+            if (el == x) {
+                y = false;
+            }
+        })
+        if (y == true) {
+            array.push(x);
+        }
+    }
+    return array;
+}
 
 function getRandomIntInclusive(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min; //Максимум и минимум включаются
 }
+
+array.forEach(el => {
+    let cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.textContent = el;
+    FIELD.append(cell);
+})
